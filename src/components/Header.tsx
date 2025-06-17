@@ -3,6 +3,7 @@ import sun from '../assets/icon-sun.svg'
 import moon from '../assets/icon-moon.svg'
 import type { ThemeProps } from '../types/types'
 import Logo from './common/Logo'
+import Button from './common/Button'
 
 
 
