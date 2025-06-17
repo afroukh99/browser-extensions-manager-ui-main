@@ -1,7 +1,11 @@
 
-export interface ThemeProps {
+export interface ContextType {
   theme: string;
   setTheme: (theme: string) => void;
+  toggleTheme : () => void;
+  data : ExtensionType [];
+  getActiveExtensions  : () => void; 
+  getInactiveExtensions  : () => void; 
 }
 
 export type LogoPropsTypes = {
@@ -13,7 +17,7 @@ export interface ButtonPropsType  {
   theme: string;
   styles?: string;
   onClick?: () => void;
-  icon?: React.ReactNode;
+  icon?: React.ReactNode
 };
 
 
@@ -25,3 +29,8 @@ export type ExtensionType = {
 }; 
 
 
+
+
+export interface ImportMetaEnv {
+  readonly REACT_APP_API_URL: string;
+}

@@ -1,21 +1,14 @@
-import logo from '../assets/logo.svg'
 import sun from '../assets/icon-sun.svg'
 import moon from '../assets/icon-moon.svg'
-import type { ThemeProps } from '../types/types'
 import Logo from './common/Logo'
-import Button from './common/Button'
+import { useAppContext } from '../hooks/useAppContext';
 
 
 
-function Header(props: ThemeProps) {
+function Header() {
 
-    const { theme, setTheme } = props
 
-    const toggleTheme: () => void = () => {
-        const newTheme = theme === 'dark' ? 'light' : 'dark';
-        setTheme(newTheme)
-        localStorage.setItem('theme', newTheme);
-    }
+    const {theme  , toggleTheme}  = useAppContext();
 
 
 
