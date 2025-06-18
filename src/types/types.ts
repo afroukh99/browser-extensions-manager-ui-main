@@ -16,8 +16,9 @@ export interface ButtonPropsType  {
   label: string;
   theme: string;
   styles?: string;
-  onClick?: () => void;
+  onClick?: (label : string) => void;
   icon?: React.ReactNode
+  filter : 'active' | 'inactive' | 'all'
 };
 
 
