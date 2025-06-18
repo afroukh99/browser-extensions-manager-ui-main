@@ -11,13 +11,14 @@ function ExtensionCard(props: ExtensionType) {
 
   const handleRemove = () => {
     removeExtension(name);
-  };
+  }
 
   const toggleEnabled = () => {
     const newState = !enabled;
     setEnabled(newState);
     toggleActiveExtension(newState, name)
   };
+
 
   return (
     <article className="w-full sm:w-[calc(50%-1rem)] lg:max-w-[calc(33.333%-1rem)] h-44 bg-neutral-50 dark:bg-neutral-800 p-3 rounded-xl border border-neutral-200 dark:border-neutral-600 flex flex-col justify-between">
