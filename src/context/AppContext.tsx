@@ -30,7 +30,7 @@ export function AppContextProvider({ children }: { children: React.ReactNode }) 
 
   // Fetch extensions data
   useEffect(() => {
-    fetch("public/data/data.json")
+    fetch("data/data.json")
       .then((res) => res.json())
       .then((data) => setData(data))
       .catch((err) =>
@@ -49,6 +49,17 @@ export function AppContextProvider({ children }: { children: React.ReactNode }) 
     }
   }, [data, filter]);
 
+  // Remove Extension by name
+const removeExtension = (name: string) => {
+  const updatedData = data.filter((ext) => ext.name.toLowerCase() !== name.toLowerCase());
+  setData(updatedData);
+};
+
+const toggleActiveExtension =  (isActive : boolean , name : string) => {
+  setData((prev) => prev.map(ext => ext.name === name ? {...ext , isActive} : ext))
+} 
+
+
   return (
     <AppContext.Provider
       value={{
@@ -58,6 +69,8 @@ export function AppContextProvider({ children }: { children: React.ReactNode }) 
         filter,
         setFilter,
         getFilteredExtensions,
+        removeExtension,
+        toggleActiveExtension
       }}
     >
       {children}

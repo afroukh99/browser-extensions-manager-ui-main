@@ -6,20 +6,20 @@ export interface ContextType {
   filter: FilterState;
   setFilter: (filter: FilterState) => void;
   getFilteredExtensions: ExtensionType[];
+  removeExtension : (name : string) => void
+  toggleActiveExtension : (isActive : boolean , name : string) => void
 };
 export type LogoPropsTypes = {
   theme: string;
 };
 
-export interface ButtonPropsType  {
+export interface ButtonPropsType {
   label: string;
   theme: string;
   styles?: string;
-  onClick?: (label : string) => void;
-  icon?: React.ReactNode
-  filter : 'active' | 'inactive' | 'all'
-};
-
+  onClick?: (label: string) => void;
+  filter?: FilterState;
+}
 
 export type ExtensionType = {
   logo: string;

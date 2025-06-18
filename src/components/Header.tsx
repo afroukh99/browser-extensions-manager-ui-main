@@ -7,10 +7,7 @@ import { useAppContext } from '../hooks/useAppContext';
 
 function Header() {
 
-
     const {theme  , toggleTheme}  = useAppContext();
-
-
 
     return (
         <header className={`bg-neutral-50 dark:bg-neutral-800  rounded-xl p-4 flex items-center justify-between ${theme}`}>
