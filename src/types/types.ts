@@ -1,11 +1,10 @@
-import type { Dispatch, SetStateAction } from "react";
 
 export interface ContextType {
   theme: string;
   setTheme: (theme: string) => void;
   toggleTheme: () => void;
-  filter: "all" | "active" | "inactive";
-  setFilter: (filter: "all" | "active" | "inactive") => void;
+  filter: FilterState;
+  setFilter: (filter: FilterState) => void;
   getFilteredExtensions: ExtensionType[];
 };
 export type LogoPropsTypes = {
@@ -30,6 +29,11 @@ export type ExtensionType = {
 }; 
 
 
+export enum FilterState {
+  All = "all",
+  Active = "active",
+  Inactive = "inactive"
+}
 
 
 export interface ImportMetaEnv {

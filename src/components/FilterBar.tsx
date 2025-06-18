@@ -1,4 +1,5 @@
 import { useAppContext } from "../hooks/useAppContext";
+import { FilterState } from "../types/types";
 import Button from "./common/Button";
 
 const buttonStates = ["All", "Active", "Inactive"];
@@ -8,9 +9,9 @@ function FilterBar() {
 
   function handleFilter(label: string) {
     const lower = label.toLowerCase();
-    if (lower === "active") setFilter("active");
-    else if (lower === "inactive") setFilter("inactive");
-    else setFilter("all");
+    if (lower === FilterState.Active) setFilter(FilterState.Active);
+    else if (lower === FilterState.Inactive) setFilter(FilterState.Inactive);
+    else setFilter(FilterState.All);
   }
 
   return (
