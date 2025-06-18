@@ -9,6 +9,8 @@ export interface ContextType {
   removeExtension : (name : string) => void
   toggleActiveExtension : (isActive : boolean , name : string) => void
 };
+
+
 export type LogoPropsTypes = {
   theme: string;
 };
@@ -28,13 +30,13 @@ export type ExtensionType = {
   isActive: boolean;
 }; 
 
+export type FilterState = 'all' | 'active' | 'inactive';
 
-export enum FilterState {
-  All = "all",
-  Active = "active",
-  Inactive = "inactive"
-}
-
+export const FilterState = {
+  All: 'all',
+  Active: 'active',
+  Inactive: 'inactive'
+} as const;
 
 export interface ImportMetaEnv {
   readonly REACT_APP_API_URL: string;

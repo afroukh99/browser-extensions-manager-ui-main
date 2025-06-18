@@ -23,14 +23,14 @@ export default tseslint.config(
       'react-refresh': reactRefresh,
       'erasable-syntax-only': erasableSyntaxOnly,
     },
+    
     rules: {
       ...reactHooks.configs.recommended.rules,
       'react-refresh/only-export-components': [
         'warn',
         { allowConstantExport: true },
       ],
-      // ✅ Enforce proper use of type-only imports (fixes ts(1294))
-      'erasable-syntax-only/no-invalid-usage': 'error',
+      
     },
   }
 );
