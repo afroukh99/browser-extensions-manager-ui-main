@@ -4,7 +4,7 @@ import type { ExtensionType } from "../types/types";
 import { useAppContext } from "../hooks/useAppContext";
 
 function ExtensionCard(props: ExtensionType) {
-  const { theme, removeExtension ,toggleActiveExtension} = useAppContext();
+  const { theme, removeExtension, toggleActiveExtension } = useAppContext();
   const { description, isActive, logo, name } = props;
 
   const [enabled, setEnabled] = useState<boolean>(isActive);
@@ -16,13 +16,13 @@ function ExtensionCard(props: ExtensionType) {
   const toggleEnabled = () => {
     const newState = !enabled;
     setEnabled(newState);
-    toggleActiveExtension(newState , name)
+    toggleActiveExtension(newState, name)
   };
 
   return (
     <article className="w-full sm:w-[calc(50%-1rem)] lg:max-w-[calc(33.333%-1rem)] h-44 bg-neutral-50 dark:bg-neutral-800 p-3 rounded-xl border border-neutral-200 dark:border-neutral-600 flex flex-col justify-between">
       <div className="flex gap-3">
-        <img className="size-14 object-cover" src={'./src/' + logo} alt={name + " img"} />
+        <img className="size-14 tex-xs object-cover" src={`/images/${logo}`} alt={`${name} img`} />
         <div>
           <h3 className="text-base md:text-lg lg:text-xl font-bold dark:text-neutral-0 text-neutral-900">{name}</h3>
           <p className="text-sm xl:text-base dark:text-neutral-300 text-neutral-500 mt-1">{description}</p>
