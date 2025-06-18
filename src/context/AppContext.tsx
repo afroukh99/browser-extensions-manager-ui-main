@@ -1,15 +1,16 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useMemo, useState } from "react";
 import type { ExtensionType, ContextType } from "../types/types";
 
 
 export const AppContext = createContext<ContextType | undefined>(undefined);
 
 export function AppContextProvider({ children }: { children: React.ReactNode }) {
+  
   const [theme, setTheme] = useState<string>(
     localStorage.getItem("theme") || "dark"
   );
-
   const [data, setData] = useState<ExtensionType[]>([]);
+  const [filter, setFilter] = useState<"all" | "active" | "inactive">("all");
 
 
 
@@ -26,11 +27,14 @@ export function AppContextProvider({ children }: { children: React.ReactNode }) 
       .catch((err) => console.error("Failed to fetch extensions", err));
   }, []);
 
-  const getActiveExtensions = () =>
-    data.filter((extension) => extension.isActive);
 
-  const getInactiveExtensions = () =>
-    data.filter((extension) => !extension.isActive);
+  const getFilteredExtensions = useMemo(() => {
+    if (filter === 'active') return data.filter((ext) => ext.isActive)
+    if (filter === 'inactive') return data.filter((ext) => !ext.isActive)
+    return data;
+  }, [data, filter])
+
+
 
   return (
     <AppContext.Provider
@@ -38,9 +42,9 @@ export function AppContextProvider({ children }: { children: React.ReactNode }) 
         theme,
         setTheme,
         toggleTheme,
-        data,
-        getActiveExtensions,
-        getInactiveExtensions,
+        filter,
+        setFilter,
+        getFilteredExtensions
       }}
     >
       {children}

@@ -1,12 +1,10 @@
-import { useState } from "react";
 import { useAppContext } from "../hooks/useAppContext";
 import Button from "./common/Button";
 
 const buttonStates = ["All", "Active", "Inactive"];
 
 function FilterBar() {
-  const [filter, setFilter] = useState<"all" | "active" | "inactive">("all");
-  const { theme } = useAppContext();
+  const { theme ,setFilter , filter} = useAppContext();
 
   function handleFilter(label: string) {
     const lower = label.toLowerCase();

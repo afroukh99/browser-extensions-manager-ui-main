@@ -1,13 +1,13 @@
+import type { Dispatch, SetStateAction } from "react";
 
 export interface ContextType {
   theme: string;
   setTheme: (theme: string) => void;
-  toggleTheme : () => void;
-  data : ExtensionType [];
-  getActiveExtensions  : () => void; 
-  getInactiveExtensions  : () => void; 
-}
-
+  toggleTheme: () => void;
+  filter: "all" | "active" | "inactive";
+  setFilter: (filter: "all" | "active" | "inactive") => void;
+  getFilteredExtensions: ExtensionType[];
+};
 export type LogoPropsTypes = {
   theme: string;
 };
