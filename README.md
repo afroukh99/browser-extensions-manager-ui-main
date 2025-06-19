@@ -36,7 +36,7 @@ Users should be able to:
 
 ### Screenshot
 
-![Screenshot](./screenshot.jpg)  
+![Screenshot](./screenshot.png)  
 *Screenshot taken in Firefox using the built-in screenshot tool. Optimized for clarity and layout overview.*
 
 ### Links
